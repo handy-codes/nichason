@@ -54,7 +54,7 @@ export const POST = async (
     //   },
     // });
 
-    return NextResponse.json({ url: session.url });
+    // return NextResponse.json({ url: session.url });
   } catch (err) {
     console.log("[courseId_checkout_POST]", err);
     return new NextResponse("Internal Server Error", { status: 500 });
