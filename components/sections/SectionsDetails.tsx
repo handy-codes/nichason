@@ -21,7 +21,7 @@ import Link from "next/link";
 import ProgressButton from "./ProgressButton";
 import SectionMenu from "../layout/SectionMenu";
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 
 interface SectionsDetailsProps {
@@ -82,29 +82,33 @@ const SectionsDetails = ({
   //@ts-ignore
   const handleFlutterPayment = useFlutterwave(config);
 
+  const router = useRouter();
+
   const buyCourse = async () => {
     try {
       setIsLoading(true);
       handleFlutterPayment({
         callback: (response) => {
-          // if(response.status === "successful") {            
-          // }
+          if(response.status === "successful") {  
+          console.log("cashed out successfully");  
+          }
           console.log(response);
           closePaymentModal() // this will close the modal programmatically
         },
-        onClose: () => {},
+        onClose: () => {
+        // return redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/courses/${course.id}/overview?success=true`);
+        },
       });
       
       const response = await axios.post(`/api/courses/${course.id}/checkout`);
       window.location.assign(response.data.url);
-      window.location.reload();
-      return redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/courses/${course.id}/overview?success=true`);
     
     } catch (err) {
       console.log("Failed to chechout course", err);
       toast.error("Something went wrong!");
     } finally {
       setIsLoading(false);
+      router.refresh();
     }
   };
 

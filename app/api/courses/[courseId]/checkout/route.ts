@@ -41,6 +41,7 @@ export const POST = async (
 
 
 
+
     // const session = await stripe.checkout.sessions.create({
     //   customer: stripeCustomer.stripeCustomerId,
     //   payment_method_types: ["card"],
