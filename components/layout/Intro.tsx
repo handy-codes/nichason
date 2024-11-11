@@ -22,7 +22,7 @@ export default function Intro() {
             {/* <img className='w-[100%] h-[85%] overflow-hidden object-cover' src="https://legaltrunk.com/wp-content/uploads/2022/08/How-to-Set-Up-an-Offshore-Company-and-Bank-Account-from-Nigeria-.jpg" /> */}
             <div className="w-[100%] p-6 h-[15%] flex flex-col justify-center items-center bg-lime-950 py-4 text-white">
              <p className='text-xl'>Nicholas Okoye</p>
-             <p>CEO, Founder NTI</p>
+             <p>Founder, CEO NTI</p>
              {/* <p>HighKlass Intl Schools </p> */}
             </div>
           </div>
