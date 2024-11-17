@@ -21,7 +21,7 @@ import Link from "next/link";
 import ProgressButton from "./ProgressButton";
 import SectionMenu from "../layout/SectionMenu";
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 
 interface SectionsDetailsProps {
@@ -62,6 +62,7 @@ const SectionsDetails = ({
       };
   }
   const config: Config =  {
+    // public_key: 'FLWPUBK-56aaffb5a242c32105a3e54e0c091706-X',
     public_key: 'FLWPUBK_TEST-7e6875e5be98e38f9ad5d3fc801b3838-X',
     tx_ref: Date.now(),
     amount: Math.round(course.price!),
@@ -89,14 +90,16 @@ const SectionsDetails = ({
       setIsLoading(true);
       handleFlutterPayment({
         callback: (response) => {
-          if(response.status === "successful") {  
-          console.log("cashed out successfully");  
+          if(response.status !== "successful") {
+            console.log("payment unsuccessful");  
+            // return redirect(`/`);
+            // return redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/courses/${course.id}/overview?canceled=true`);
           }
           console.log(response);
           closePaymentModal() // this will close the modal programmatically
         },
         onClose: () => {
-        // return redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/courses/${course.id}/overview?success=true`);
+        // return redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/courses/${course.id}/overview?canceled=true`);
         },
       });
       

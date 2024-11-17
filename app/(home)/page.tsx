@@ -31,7 +31,6 @@ export default async function Home() {
             <CourseCard key={course.id} course={course} />
           ))}
         </div>   
-        {/* <FooterPage/>    */}
       </div>
         <FooterPage/>   
     </div>

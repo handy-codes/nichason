@@ -1,7 +1,7 @@
 "use client";
 
 import { UserButton, useAuth } from "@clerk/nextjs";
-import { Menu, Search } from "lucide-react";
+import { Menu, Home, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -47,7 +47,8 @@ const Topbar = () => {
 
   return (
     <div className="flex w-full mx-auto content-center justify-between sticky z-50 top-0 bg-blue-700 text-white font-bold text-2xl items-center p-4">
-      <Link href="/">
+      <Link className="flex items-center content-center gap-4" href="/">
+        <Home color="#FDB31D" className="w-8 h-8" />
         <Image src="/nickarson_logo.webp" height={40} width={100} alt="logo" />
         {/* <Image src="/logo2.png" height={80} width={200} alt="logo" /> */}
       </Link>
