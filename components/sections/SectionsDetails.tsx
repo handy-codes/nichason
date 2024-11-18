@@ -74,7 +74,7 @@ const SectionsDetails = ({
       name: 'Prince Emy',
     },
     customizations: {
-      title: 'Nickarson Training Instiitute',
+      title: 'WandyTech Tutors',
       description: 'Payment for Courses in cart',
       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
     },

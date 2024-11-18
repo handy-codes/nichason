@@ -48,8 +48,8 @@ const Topbar = () => {
   return (
     <div className="flex w-full mx-auto content-center justify-between sticky z-50 top-0 bg-blue-700 text-white font-bold text-2xl items-center p-4">
       <Link className="flex items-center content-center gap-4" href="/">
-        <Home color="#FDB31D" className="w-8 h-8" />
-        <Image src="/nickarson_logo.webp" height={40} width={100} alt="logo" />
+        <Home color="#FDB31D" className="w-6 h-6" />
+        <Image src="/wandylogo.jpg" height={20} width={80} alt="logo" />
         {/* <Image src="/logo2.png" height={80} width={200} alt="logo" /> */}
       </Link>
 
